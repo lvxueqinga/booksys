@@ -13,3 +13,16 @@
 * 新增图书
 * 图书列表查询
 * 图书列表筛选
+
+---
+
+
+#### 数据库表结构
+
+CREATE TABLE `booklist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `author` varchar(45) DEFAULT NULL,
+  `page` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8
