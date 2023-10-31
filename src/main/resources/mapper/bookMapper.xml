@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.lxq.mybook.dao.BookMapper">
+
+    <select id="searchBook" resultType="com.alibaba.fastjson.JSONObject" >
+        select * from booklist;
+    </select>
+
+    <insert id="addBook" parameterType="com.lxq.mybook.model.Book">
+        <![CDATA[
+            insert into booklist (
+
+                `name`,
+                `author`,
+                page
+            ) values (
+
+                #{name},
+                #{author},
+                #{page}
+            ) ON DUPLICATE KEY UPDATE
+            name=#{name},
+            author=#{author},
+            page=#{page}
+        ]]>
+    </insert>
+
+
+    <select id="searchBookpara"  parameterType="com.lxq.mybook.model.Book" resultType="com.alibaba.fastjson.JSONObject" >
+        select * from booklist
+        <where>
+            1=1
+            <if test="name != null and name != ''">
+                AND name like concat('%', #{name}, '%')
+            </if>
+
+            <if test="author != null and author != ''">
+                AND author like concat('%', #{author}, '%')
+            </if>
+
+            <if test="page != null and page != ''">
+                AND page=#{page}
+            </if>
+
+        </where>
+
+
+
+        ;
+    </select>
+</mapper>
