@@ -7,6 +7,7 @@ import com.lxq.mybook.service.BookService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -27,13 +28,13 @@ public class BookController {
     }
 
     @PostMapping("/add")
-    public int add(@RequestBody Book book){
+    public int add(@RequestBody @Valid Book book){
         return bookService.addBook(book);
     }
 
 
     @RequestMapping(value = "/searchpara", method = RequestMethod.POST)
-    public List<JSONObject> searchpara(@RequestBody Book book) {
+    public List<JSONObject> searchpara(@RequestBody  Book book) {
         return  bookService.searchBookpara(book);
     }
 
