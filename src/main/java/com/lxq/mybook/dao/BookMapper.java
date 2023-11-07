@@ -38,5 +38,16 @@ public interface BookMapper {
      */
     List<JSONObject> searchBookpara(Book book);
 
+    /*
+    编辑作者
+     */
+    int editBook(String bookname,String newauthor);
+
+    /*
+    删除
+     */
+
+    int delBook(String bookname);
+
 
 }

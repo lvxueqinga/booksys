@@ -34,4 +34,15 @@ public class BookServiceImpl implements BookService {
         return bookMapper.searchBookpara(book);
     }
 
+    @Override
+    public int editBook(String bookname, String newauthor) {
+        return bookMapper.editBook(bookname,newauthor);
+    }
+
+    @Override
+    public int delBook(String bookname) {
+        return bookMapper.delBook(bookname);
+    }
+
+
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -37,6 +38,12 @@ public class BookController {
     public List<JSONObject> searchpara(@RequestBody  Book book) {
         return  bookService.searchBookpara(book);
     }
+
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
+    public int edit(@RequestParam @Valid String bookname,@RequestParam  @NotNull String newauthor){return bookService.editBook(bookname,newauthor);}
+
+    @RequestMapping(value = "/del",method = RequestMethod.POST)
+    public int del(@RequestParam @Valid String bookname){return bookService.delBook(bookname);}
 
 
 

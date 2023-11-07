@@ -37,5 +37,14 @@ public interface BookService {
      */
     List<JSONObject> searchBookpara(Book book);
 
+    /*
+    修改作者
+     */
+    int editBook(String bookname,String newauthor);
+
+    /*
+      删除书
+     */
+    int delBook(String bookname);
 
 }

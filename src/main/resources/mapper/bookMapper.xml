@@ -48,8 +48,15 @@
 
         </where>
 
-
-
         ;
     </select>
+
+
+    <update id="editBook" parameterType="String">
+        update mybooksys.booklist set author=#{param2} where name=#{param1};
+    </update>
+
+    <delete id="delBook" parameterType="String">
+        delete from mybooksys.booklist where name=#{param};
+    </delete>
 </mapper>
